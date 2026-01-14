@@ -1138,6 +1138,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .showreel-container {
@@ -1307,6 +1309,21 @@ body {
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #ffffff;
+}
+
+/* Prevent iOS data detectors from recoloring phone numbers */
+a[x-apple-data-detectors],
+a[x-apple-data-detectors]:hover,
+a[x-apple-data-detectors]:active,
+a[x-apple-data-detectors]:visited,
+a[href^="tel"],
+a[href^="tel"]:hover,
+a[href^="tel"]:active,
+a[href^="tel"]:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-weight: inherit;
+    -webkit-text-fill-color: currentColor;
 }
 
 .email {
@@ -1581,6 +1598,7 @@ body {
         height: clamp(320px, 55vh, 420px);
         max-width: 100%;
         margin: 3rem auto 2rem;
+        touch-action: pan-y;
     }
 
     .software-icons-scattered .icon-item {
@@ -1611,13 +1629,37 @@ body {
     .skills-liquid-page2-top-left,
     .skills-liquid-page2-bottom-middle,
     .skills-liquid-page2-bottom-right {
-        width: 150px;
+        width: clamp(140px, 32vw, 220px);
         opacity: 0.5;
     }
 
-    /* Skills Sticky Note mobile - hide to prevent overlap */
+    .skills-liquid-bottom-left {
+        left: -10px;
+        bottom: -10px;
+    }
+
+    .skills-liquid-page2-top-left {
+        left: -8px;
+        top: -16px;
+    }
+
+    .skills-liquid-page2-bottom-middle {
+        width: clamp(260px, 70vw, 420px);
+        left: 50%;
+    }
+
+    .skills-liquid-page2-bottom-right {
+        right: -10px;
+        bottom: -12px;
+    }
+
+    /* Skills Sticky Note mobile - keep visible */
     .skills-sticky-note {
-        display: none;
+        display: block;
+        width: 90px;
+        top: 8%;
+        right: 6%;
+        opacity: 0.95;
     }
 
     /* Skills title mobile - ensure it wraps properly */
@@ -1637,8 +1679,11 @@ body {
     }
 
     .work-liquid-design {
-        width: 150px;
-        opacity: 0.3;
+        width: auto;
+        height: clamp(260px, 70vh, 520px);
+        left: -4%;
+        top: -2%;
+        opacity: 0.4;
     }
 
     /* Work Sticky Note mobile - reposition */
@@ -1736,6 +1781,9 @@ body {
 
     .poster-folder {
         display: block;
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
     }
 
     .work-poster-decor {
@@ -1811,7 +1859,9 @@ body {
     }
 
     .education-liquid-bottom-left {
-        width: 150px;
+        width: clamp(140px, 28vw, 200px);
+        left: -12px;
+        bottom: -10px;
         opacity: 0.5;
     }
 
@@ -1835,8 +1885,18 @@ body {
 
     .contact-liquid-top-left,
     .contact-liquid-bottom-right {
-        width: 120px;
+        width: clamp(110px, 26vw, 170px);
         opacity: 0.5;
+    }
+
+    .contact-liquid-top-left {
+        left: -10px;
+        top: -10px;
+    }
+
+    .contact-liquid-bottom-right {
+        right: -10px;
+        bottom: -10px;
     }
 
     .contact-info p {
@@ -1981,6 +2041,12 @@ body {
     /* Skills title extra small */
     .skills-title img {
         height: 50px;
+    }
+
+    .skills-sticky-note {
+        width: 75px;
+        top: 9%;
+        right: 5%;
     }
 
     /* Work section extra small */
@@ -2197,6 +2263,12 @@ body {
 
     .email {
         font-size: 1.1rem;
+    }
+
+    .skills-sticky-note {
+        width: 65px;
+        top: 9.5%;
+        right: 4%;
     }
 
     .work-gallery {

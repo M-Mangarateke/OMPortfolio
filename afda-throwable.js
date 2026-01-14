@@ -28,11 +28,15 @@ function initAFDAThrowable() {
     return;
   }
 
+  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
   // Create the draggable instance with throwing physics
   Draggable.create(afdaLogo, {
     type: 'x,y',
     bounds: educationSection,
     edgeResistance: 0.8,
+    allowNativeTouchScrolling: isTouchDevice,
+    dragClickables: true,
 
     onPress: function() {
       // Kill any floating animation

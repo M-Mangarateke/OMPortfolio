@@ -135,6 +135,10 @@ function animateHeroText() {
   const line2Letters = Array.from(line2.querySelectorAll('img'));
   const filmStrip = document.querySelector('.film-strip-container');
   const exploreBtn = document.querySelector('.explore-btn');
+  const prefersReducedMotion = window.motionConfig && window.motionConfig.reducedMotion;
+  const isCoarsePointer = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+  const useSimpleExploreAnim = prefersReducedMotion || isCoarsePointer || isSmallScreen;
 
   if (!exploreBtn) {
     console.error('❌ Explore button not found!');
@@ -159,7 +163,7 @@ function animateHeroText() {
     gsap.set(exploreBtn, {
       visibility: 'visible',
       opacity: 1,
-      force3D: true
+      force3D: !useSimpleExploreAnim
     });
   }
 
@@ -196,7 +200,32 @@ function animateHeroText() {
 
   // Animate button if it exists - use fromTo for explicit control
   if (exploreBtn) {
-    tl.fromTo(exploreBtn,
+    if (useSimpleExploreAnim) {
+      tl.fromTo(exploreBtn,
+        {
+          scale: 0.7,
+          opacity: 0,
+          visibility: 'visible',
+          display: 'block'
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          visibility: 'visible',
+          display: 'block',
+          duration: 0.45,
+          ease: 'power2.out',
+          onComplete: () => {
+            exploreBtn.style.opacity = '1';
+            exploreBtn.style.visibility = 'visible';
+            exploreBtn.style.display = 'block';
+            exploreBtn.style.transform = '';
+          }
+        },
+        '-=0.2'
+      );
+    } else {
+      tl.fromTo(exploreBtn,
       {
         // FROM state
         scale: 0,
@@ -228,7 +257,8 @@ function animateHeroText() {
         }
       },
       '-=0.2'
-    );
+      );
+    }
   }
 
   console.log('%c🎬 Hero text animated', 'color: #88ce02;');

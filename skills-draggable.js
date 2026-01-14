@@ -25,12 +25,15 @@ function initSkillsDraggable() {
     return;
   }
 
+  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
   // Make each icon draggable
   Draggable.create(iconItems, {
     type: 'x,y',
     bounds: '.skills-part1',
     edgeResistance: 0.65,
-    allowNativeTouchScrolling: false,
+    allowNativeTouchScrolling: isTouchDevice,
+    dragClickables: true,
 
     onPress: function() {
       // Scale up when grabbing
