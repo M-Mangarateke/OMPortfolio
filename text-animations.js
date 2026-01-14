@@ -474,6 +474,9 @@ function setupContactTextAnimation() {
 function setupScrambleAnimations() {
   // About section paragraphs only
   const aboutParagraphs = document.querySelectorAll('.about-text p');
+  const reducedMotion = window.motionConfig && window.motionConfig.reducedMotion;
+  const fastScrollThreshold = 1500;
+
   aboutParagraphs.forEach((p, index) => {
     // Store original text and mark as not animated
     const originalText = p.textContent;
@@ -484,10 +487,19 @@ function setupScrambleAnimations() {
       start: 'top 85%',
       once: true, // Only trigger once to prevent re-animation
       fastScrollEnd: true, // Handle fast scrolling better
-      onEnter: () => {
+      onEnter: (self) => {
         // Prevent duplicate animations
         if (p.dataset.animated === 'true') return;
         p.dataset.animated = 'true';
+
+        const velocity = self && typeof self.getVelocity === 'function'
+          ? Math.abs(self.getVelocity())
+          : 0;
+
+        if (reducedMotion || velocity > fastScrollThreshold) {
+          p.textContent = originalText;
+          return;
+        }
 
         scrambleText(p, {
           text: originalText,

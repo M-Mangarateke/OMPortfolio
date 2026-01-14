@@ -20,11 +20,17 @@ function initSkillsDraggable() {
     return;
   }
 
+  if (typeof Draggable === 'undefined' || typeof gsap === 'undefined') {
+    console.warn('GSAP Draggable not available');
+    return;
+  }
+
   // Make each icon draggable
   Draggable.create(iconItems, {
     type: 'x,y',
     bounds: '.skills-part1',
     edgeResistance: 0.65,
+    allowNativeTouchScrolling: false,
 
     onPress: function() {
       // Scale up when grabbing

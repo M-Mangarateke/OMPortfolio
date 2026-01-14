@@ -150,6 +150,8 @@ function revealGrids() {
   grids.forEach((grid) => {
     // Skip elements inside intro overlay
     if (grid.closest('#intro-overlay')) return;
+    // Skip draggable skills icons to avoid transform conflicts
+    if (grid.classList.contains('software-icons-scattered')) return;
 
     const items = grid.children;
 

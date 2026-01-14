@@ -482,6 +482,7 @@ body {
     position: absolute;
     cursor: grab;
     user-select: none;
+    touch-action: none;
 }
 
 .software-icons-scattered .icon-item:active {
@@ -1456,50 +1457,8 @@ body {
     }
 
     .work-gallery {
-        min-height: auto;
-        max-width: 600px;
+        max-width: 680px;
         margin: 0 auto;
-    }
-
-    .poster-grid {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        min-height: 700px;
-    }
-
-    .poster {
-        width: 160px;
-    }
-
-    .poster:nth-child(1) {
-        top: 0;
-        left: 10px;
-    }
-
-    .poster:nth-child(2) {
-        top: 20px;
-        left: 200px;
-    }
-
-    .poster:nth-child(3) {
-        top: 10px;
-        right: 20px;
-    }
-
-    .poster:nth-child(4) {
-        top: 220px;
-        left: 0;
-    }
-
-    .poster:nth-child(5) {
-        top: 200px;
-        left: 180px;
-    }
-
-    .poster:nth-child(6) {
-        top: 250px;
-        right: 10px;
     }
 
     /* Education tablet */
@@ -1619,22 +1578,13 @@ body {
     }
 
     .software-icons-scattered {
-        height: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        padding: 2rem 0;
+        height: clamp(320px, 55vh, 420px);
         max-width: 100%;
+        margin: 3rem auto 2rem;
     }
 
     .software-icons-scattered .icon-item {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        transform: none !important;
-        text-align: center;
-        margin: 0 auto;
+        touch-action: none;
     }
 
     .software-icons-scattered .icon-item img {
@@ -1713,99 +1663,83 @@ body {
     }
 
     .work-gallery {
-        min-height: auto;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 680px;
+        max-width: none;
+        min-height: 360px;
+        display: block;
+        transform: scale(0.75);
+        transform-origin: top center;
+        margin: 0 auto;
     }
 
     .work-section {
-        position: relative !important;
+        position: absolute;
     }
 
     .burn-mouth {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        margin: 0 auto 2rem;
-        width: 100%;
-        max-width: 280px;
+        width: 300px;
+        top: 0;
+        left: 0;
+        margin: 0;
     }
 
-    /* Polaroid group mobile - simplified layout */
     .polaroid-group {
-        height: auto;
-        min-height: 200px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        height: 310px;
+        display: block;
         position: relative;
     }
 
     .folder-image {
-        position: relative !important;
-        width: 220px !important;
-        left: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        margin: 0 auto;
+        position: absolute;
+        width: 255px;
+        left: 16px;
+        bottom: 8px;
+        transform: rotate(2deg);
+        margin: 0;
     }
 
     .main-poster-image {
-        position: absolute !important;
-        width: 70px !important;
-        top: 15px !important;
-        left: 25px !important;
-        transform: rotate(-5deg) !important;
+        position: absolute;
+        width: 90px;
+        top: 18px;
+        left: 18px;
+        transform: rotate(-8deg);
     }
 
-    /* Hide polaroids on mobile - too cluttered */
     .polaroid-top-top-right,
     .polaroid-top-bottom-right,
     .polaroid-bottom-left,
     .polaroid-bottom-top-right,
     .polaroid-bottom-bottom-right {
-        display: none;
+        display: block;
     }
 
     .posters {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        left: 320px;
+        width: 340px;
+        margin: 0;
     }
 
     .poster-grid {
-        width: 100%;
-        height: auto;
+        height: 320px;
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        display: block;
     }
 
     .poster {
-        position: relative !important;
-        width: 180px !important;
-        margin: 0 auto;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        transform: none !important;
+        position: absolute;
+        margin: 0;
         display: block;
     }
 
     .poster-folder {
-        display: none;
+        display: block;
     }
 
     .work-poster-decor {
-        display: none;
+        display: block;
     }
 
     /* Showreel mobile */
@@ -1815,13 +1749,13 @@ body {
     }
 
     .showreel-title {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 0.2rem;
+        gap: clamp(0.08rem, 1vw, 0.2rem);
     }
 
     .showreel-title img {
-        height: 50px;
+        height: clamp(34px, 7vw, 52px);
     }
 
     .showreel-container {
@@ -1835,7 +1769,7 @@ body {
     }
 
     .education-title {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         gap: 0.2rem;
         max-width: 100%;
@@ -1843,13 +1777,16 @@ body {
     }
 
     .education-title img {
-        height: 45px !important;
-        margin-top: 0 !important;
+        height: clamp(32px, 7vw, 50px);
     }
 
     .education-title img:first-child {
-        height: 45px !important;
-        margin-right: 0 !important;
+        height: clamp(60px, 12vw, 90px);
+        margin-right: -0.2rem;
+    }
+
+    .education-title img:not(:first-child) {
+        margin-top: clamp(12px, 3vw, 22px);
     }
 
     .edu-item h3 {
@@ -1927,6 +1864,12 @@ body {
 
     .work-item-back p {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-gallery {
+        transform: scale(0.65);
     }
 }
 
@@ -2013,8 +1956,7 @@ body {
     }
 
     .software-icons-scattered {
-        gap: 1.5rem;
-        padding: 1.5rem 0;
+        height: clamp(280px, 50vh, 360px);
     }
 
     .software-icons-scattered .icon-item img {
@@ -2061,26 +2003,8 @@ body {
         height: 50px;
     }
 
-    .burn-mouth {
-        max-width: 240px;
-    }
-
-    .folder-image {
-        width: 180px !important;
-    }
-
-    .main-poster-image {
-        width: 55px !important;
-        top: 12px !important;
-        left: 20px !important;
-    }
-
-    .posters {
-        max-width: 260px;
-    }
-
-    .poster {
-        width: 150px !important;
+    .work-gallery {
+        transform: scale(0.58);
     }
 
     /* Showreel extra small */
@@ -2088,8 +2012,12 @@ body {
         padding: 4rem 1rem;
     }
 
+    .showreel-title {
+        gap: clamp(0.06rem, 0.8vw, 0.16rem);
+    }
+
     .showreel-title img {
-        height: 40px;
+        height: clamp(28px, 8vw, 42px);
     }
 
     .showreel-video {
@@ -2102,15 +2030,15 @@ body {
     }
 
     .education-title img {
-        height: 35px !important;
+        height: clamp(26px, 7.5vw, 38px);
     }
 
     .education-title img:first-child {
-        height: 120px;
+        height: clamp(48px, 11vw, 66px);
     }
 
     .education-title img:not(:first-child) {
-        margin-top: 50px;
+        margin-top: clamp(8px, 2.8vw, 12px);
     }
 
     .edu-item h3 {
@@ -2167,6 +2095,36 @@ body {
         bottom: 1rem;
         font-size: 0.9rem;
         padding: 0.8rem 1.5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .work-gallery {
+        transform: scale(0.55);
+    }
+
+    .showreel-title {
+        gap: clamp(0.05rem, 0.7vw, 0.12rem);
+    }
+
+    .showreel-title img {
+        height: clamp(26px, 7.5vw, 38px);
+    }
+
+    .education-title {
+        gap: 0.15rem;
+    }
+
+    .education-title img {
+        height: clamp(24px, 7vw, 34px);
+    }
+
+    .education-title img:first-child {
+        height: clamp(44px, 10.5vw, 60px);
+    }
+
+    .education-title img:not(:first-child) {
+        margin-top: clamp(7px, 2.5vw, 11px);
     }
 }
 
@@ -2239,6 +2197,34 @@ body {
 
     .email {
         font-size: 1.1rem;
+    }
+
+    .work-gallery {
+        transform: scale(0.52);
+    }
+
+    .showreel-title {
+        gap: clamp(0.04rem, 0.6vw, 0.1rem);
+    }
+
+    .showreel-title img {
+        height: clamp(24px, 8vw, 34px);
+    }
+
+    .education-title {
+        gap: 0.12rem;
+    }
+
+    .education-title img {
+        height: clamp(22px, 7.5vw, 30px);
+    }
+
+    .education-title img:first-child {
+        height: clamp(40px, 10.5vw, 54px);
+    }
+
+    .education-title img:not(:first-child) {
+        margin-top: clamp(6px, 2.4vw, 9px);
     }
 }
 
