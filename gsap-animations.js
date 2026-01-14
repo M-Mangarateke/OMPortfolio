@@ -152,6 +152,8 @@ function revealGrids() {
     if (grid.closest('#intro-overlay')) return;
     // Skip draggable skills icons to avoid transform conflicts
     if (grid.classList.contains('software-icons-scattered')) return;
+    // Skip work poster grid to avoid missing items on mobile
+    if (grid.classList.contains('poster-grid')) return;
 
     const items = grid.children;
 

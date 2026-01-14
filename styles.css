@@ -1233,13 +1233,14 @@ body {
     bottom: 4rem;
     right: 2rem;
     z-index: 2;
-    cursor: grab;
-    user-select: none;
-    touch-action: none;
+    cursor: default;
+    user-select: auto;
+    touch-action: pan-y;
+    pointer-events: none;
 }
 
 .afda-logo:active {
-    cursor: grabbing;
+    cursor: default;
 }
 
 .afda-logo img {
@@ -1372,6 +1373,10 @@ a[href^="tel"]:visited {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .software-icons-scattered .icon-item {
+        touch-action: pan-y;
     }
 
     .explore-btn,
@@ -1602,7 +1607,7 @@ a[href^="tel"]:visited {
     }
 
     .software-icons-scattered .icon-item {
-        touch-action: none;
+        touch-action: pan-y;
     }
 
     .software-icons-scattered .icon-item img {
