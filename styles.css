@@ -1717,9 +1717,9 @@ a[href^="tel"]:visited {
         max-width: none;
         min-height: 360px;
         display: block;
-        transform: scale(0.75);
+        transform: translateX(calc(-50% + 50vw)) scale(0.75);
         transform-origin: top center;
-        margin: 0 auto;
+        margin: 0;
     }
 
     .work-section {
@@ -1934,7 +1934,7 @@ a[href^="tel"]:visited {
 
 @media (max-width: 600px) {
     .work-gallery {
-        transform: scale(0.65);
+        transform: translateX(calc(-50% + 50vw)) scale(0.65);
     }
 }
 
@@ -2075,7 +2075,7 @@ a[href^="tel"]:visited {
     }
 
     .work-gallery {
-        transform: scale(0.58);
+        transform: translateX(calc(-50% + 50vw)) scale(0.58);
     }
 
     /* Showreel extra small */
@@ -2171,7 +2171,7 @@ a[href^="tel"]:visited {
 
 @media (max-width: 420px) {
     .work-gallery {
-        transform: scale(0.55);
+        transform: translateX(calc(-50% + 50vw)) scale(0.55);
     }
 
     .showreel-title {
@@ -2277,7 +2277,7 @@ a[href^="tel"]:visited {
     }
 
     .work-gallery {
-        transform: scale(0.52);
+        transform: translateX(calc(-50% + 50vw)) scale(0.52);
     }
 
     .showreel-title {

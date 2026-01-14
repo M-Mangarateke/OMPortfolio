@@ -27,6 +27,11 @@ function initSkillsDraggable() {
 
   const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
+  if (isTouchDevice) {
+    console.log('%cSkipping skills drag on touch devices to keep scroll smooth.', 'color: #888;');
+    return;
+  }
+
   // Make each icon draggable
   Draggable.create(iconItems, {
     type: 'x,y',
