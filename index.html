@@ -9,6 +9,11 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
+        <button class="nav-hamburger" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-container">
             <a href="#home" class="nav-link">HOME</a>
             <a href="#about" class="nav-link">ABOUT ME</a>
@@ -58,7 +63,7 @@
             </div>
 
             <!-- Explore Button -->
-            <img src="assets/images/hero/herobutton.png" alt="Explore" class="explore-btn" data-reveal>
+            <img src="assets/images/hero/herobutton.png" alt="Explore" class="explore-btn">
         </div>
     </section>
 
@@ -100,6 +105,9 @@
         <div class="skills-part1">
             <!-- Liquid Design Decorations -->
             <img src="assets/images/skills/SkillsLiquidDesignBottomLeft.svg" class="skills-liquid-bottom-left" alt="">
+
+            <!-- Skills Sticky Note -->
+            <img src="assets/images/skills/SkillsStickyNote.svg" class="skills-sticky-note" alt="Drag the icons!">
 
             <!-- Liquid Chrome Text for SKILLS -->
             <div class="section-title">
@@ -210,6 +218,9 @@
         <!-- Liquid Design Decorations -->
         <img src="assets/images/work/WorkLiquidDesign.svg" class="work-liquid-design" alt="">
 
+        <!-- Work Sticky Note -->
+        <img src="assets/images/work/WorkStickyNote.svg" class="work-sticky-note" alt="Click to flip!">
+
         <div class="work-layout">
             <!-- Work Gallery -->
             <div class="work-gallery">
@@ -220,28 +231,52 @@
                         <img src="assets/images/work/WorkBurnMouthFolder.svg" alt="Burn Mouth Folder" class="folder-image">
 
                         <!-- Main Poster -->
-                        <img src="assets/images/work/WorkBurnMouthPoster.svg" alt="Burn Mouth" class="main-poster-image">
+                        <img src="assets/images/work/WorkBurnMouthPoster.svg" alt="Burn Mouth" class="main-poster-image clickable-work"
+                             data-title="Burn Mouth"
+                             data-description="Official poster for Burn Mouth - A short film exploring the complexities of identity and expression. Directed and produced with a focus on visual effects and compelling narrative.">
 
                         <!-- Polaroid Images stacked on folder -->
-                        <img src="assets/images/work/WorkBurnMouthTopTopRight.svg" class="polaroid-top-top-right" alt="">
-                        <img src="assets/images/work/WorkBurnMouthTopBottomRight.svg" class="polaroid-top-bottom-right" alt="">
-                        <img src="assets/images/work/WorkBurnMouthBottomLeft.svg" class="polaroid-bottom-left" alt="">
-                        <img src="assets/images/work/WorkBurnMouthBottomTopRight.svg" class="polaroid-bottom-top-right" alt="">
-                        <img src="assets/images/work/WorkBurnMouthBottomBottomRight.svg" class="polaroid-bottom-bottom-right" alt="">
+                        <img src="assets/images/work/WorkBurnMouthTopTopRight.svg" class="polaroid-top-top-right clickable-work" alt="Behind the scenes"
+                             data-title="Production Still #1"
+                             data-description="Grad-Fest with my family!">
+                        <img src="assets/images/work/WorkBurnMouthTopBottomRight.svg" class="polaroid-top-bottom-right clickable-work" alt="Behind the scenes"
+                             data-title="Production Still #2"
+                             data-description="A candid shot of me in-Front of the poster I designed!!!">
+                        <img src="assets/images/work/WorkBurnMouthBottomLeft.svg" class="polaroid-bottom-left clickable-work" alt="Behind the scenes"
+                             data-title="Production Still #3"
+                             data-description="Exclusive BurnMouth Poster.">
+                        <img src="assets/images/work/WorkBurnMouthBottomTopRight.svg" class="polaroid-bottom-top-right clickable-work" alt="Behind the scenes"
+                             data-title="Production Still #4"
+                             data-description="Cast and crew equipment.">
+                        <img src="assets/images/work/WorkBurnMouthBottomBottomRight.svg" class="polaroid-bottom-bottom-right clickable-work" alt="Behind the scenes"
+                             data-title="Production Still #5"
+                             data-description="Final moments before calling action on an important take.">
                     </div>
                 </div>
 
                 <!-- Posters Section -->
                 <div class="work-section posters">
-                    <img src="assets/images/work/WorkPosterBottomRight.svg" class="work-poster-decor" alt="">
+                    <img src="assets/images/work/WorkPosterBottomRight.svg" class="work-poster-decor clickable-work" alt="Design element"
+                         data-title="Creative Design Element"
+                         data-description="Job-shadowing at the theater.">
 
                     <div class="poster-grid" data-reveal-grid>
-                        <img src="assets/images/work/WorkPosterDoechii.svg" alt="Doechii Poster" class="poster">
-                        <img src="assets/images/work/WorkPosterTheWeeknd.svg" alt="The Weeknd Poster" class="poster">
-                        <img src="assets/images/work/WorkPosterUncleWaffles.svg" alt="Uncle Waffles Poster" class="poster">
-                        <img src="assets/images/work/WorkPosterGenZ.svg" alt="Gen Z Poster" class="poster">
-                        <img src="assets/images/work/WorkPosterBridgingTheGap.svg" alt="Bridging The Gap Poster" class="poster">
-                        <img src="assets/images/work/WorkPosterFolder.svg" alt="Poster Folder" class="poster">
+                        <img src="assets/images/work/WorkPosterDoechii.svg" alt="Doechii Poster" class="poster clickable-work"
+                             data-title="Doechii - Artist Poster"
+                             data-description="Conceptual poster design for artist Doechii, featuring bold colors and dynamic composition that reflects her unique artistic style and energy.">
+                        <img src="assets/images/work/WorkPosterTheWeeknd.svg" alt="The Weeknd Poster" class="poster clickable-work"
+                             data-title="The Weeknd - Concert Poster"
+                             data-description="Promotional poster design for The Weeknd, incorporating atmospheric visuals and striking imagery that captures the essence of his musical aesthetic.">
+                        <img src="assets/images/work/WorkPosterUncleWaffles.svg" alt="Uncle Waffles Poster" class="poster clickable-work"
+                             data-title="Uncle Waffles - DJ Poster"
+                             data-description="Vibrant poster design for DJ and producer Uncle Waffles, showcasing energetic visuals that match her high-energy performances.">
+                        <img src="assets/images/work/WorkPosterGenZ.svg" alt="Gen Z Poster" class="poster clickable-work"
+                             data-title="Gen Z - Editorial Design"
+                             data-description="Editorial poster exploring Gen Z culture, featuring contemporary design elements and bold typography that speaks to a new generation.">
+                        <img src="assets/images/work/WorkPosterBridgingTheGap.svg" alt="Bridging The Gap Poster" class="poster clickable-work"
+                             data-title="Bridging The Gap"
+                             data-description="Conceptual poster addressing themes of connection and unity, designed with thoughtful composition and meaningful visual metaphors.">
+                        <img src="assets/images/work/WorkPosterFolder.svg" alt="Poster Folder" class="poster poster-folder">
                     </div>
                 </div>
             </div>
@@ -355,9 +390,14 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
 
     <!-- Motion Configuration -->
     <script src="motion-config.js"></script>
+
+    <!-- Custom Text Effects (SplitText & ScrambleText alternatives) -->
+    <script src="text-effects.js"></script>
 
     <!-- Intro Overlay - Phase 2 -->
     <script src="intro-overlay.js"></script>
@@ -365,11 +405,23 @@
     <!-- GSAP Animations - Phase 1 -->
     <script src="gsap-animations.js"></script>
 
+    <!-- Advanced Text Animations (Split & Scramble) -->
+    <script src="text-animations.js"></script>
+
     <!-- Smooth Scroll and Navigation - Phase 3 -->
     <script src="smooth-scroll-nav.js"></script>
 
-    <!-- Section Transitions - Phase 4 -->
-    <script src="section-transitions.js"></script>
+    <!-- Skills Draggable Functionality -->
+    <script src="skills-draggable.js"></script>
+
+    <!-- AFDA Logo Throwable Functionality -->
+    <script src="afda-throwable.js"></script>
+
+    <!-- Work Flip Interactions -->
+    <script src="work-flip.js"></script>
+
+    <!-- Mobile Navigation -->
+    <script src="mobile-nav.js"></script>
 
     <script src="script.js"></script>
 </body>

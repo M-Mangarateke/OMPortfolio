@@ -1,0 +1,22 @@
+# Claude Code
+.claude/
+
+# Documentation (local only)
+docs/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+__MACOSX/
+*/__MACOSX/
+
+# Temporary/unused files
+*.tmp
+*.log
+nul
+assets/css-effects/
+assets/css-updates-for-svg.css
+assets/index.html
+
+# Large video files (host externally)
+assets/videos/
