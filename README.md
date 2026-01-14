@@ -80,18 +80,6 @@ OMPortfolioWeb/
 
 - Chrome, Firefox, Safari, Edge (current versions)
 
-## Deployment
-
-### GitHub Pages
-1. Create a GitHub repository.
-2. Upload the project files.
-3. Settings > Pages > deploy from main branch.
-4. Visit https://yourusername.github.io/repository-name.
-
-### Netlify
-1. Drag the folder into Netlify.
-2. The site deploys instantly.
-
 ## Credits
 
 Design based on Oreneile Machitje's original PDF portfolio, translated into HTML, CSS, and JavaScript.
