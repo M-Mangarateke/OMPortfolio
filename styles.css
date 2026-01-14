@@ -1309,16 +1309,41 @@ body {
 }
 
 .email {
+    display: block;
     font-family: 'Agrandir', Arial, sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
     color: #ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
+    margin-bottom: 1.5rem;
 }
 
 .email:hover {
     color: #5ba3d0;
+}
+
+.cv-download {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 1rem 2.5rem;
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cv-download:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Touch-friendly improvements for all mobile/tablet devices */
@@ -1640,11 +1665,20 @@ body {
         opacity: 0.5;
     }
 
-    /* Skills Sticky Note mobile */
+    /* Skills Sticky Note mobile - hide to prevent overlap */
     .skills-sticky-note {
-        width: 100px;
-        top: 10%;
-        right: 5%;
+        display: none;
+    }
+
+    /* Skills title mobile - ensure it wraps properly */
+    .skills-title {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3rem;
+    }
+
+    .skills-title img {
+        height: 60px;
     }
 
     /* Work section mobile */
@@ -1653,37 +1687,94 @@ body {
     }
 
     .work-liquid-design {
-        width: 200px;
-        opacity: 0.4;
+        width: 150px;
+        opacity: 0.3;
     }
 
-    /* Work Sticky Note mobile */
+    /* Work Sticky Note mobile - reposition */
     .work-sticky-note {
-        width: 100px;
-        bottom: 5%;
+        width: 80px;
+        bottom: auto;
+        top: 2%;
         right: 2%;
+    }
+
+    /* Work title mobile */
+    .work-title-line1,
+    .work-title-line2 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    .work-title-line1 img,
+    .work-title-line2 img {
+        height: 60px;
     }
 
     .work-gallery {
         min-height: auto;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work-section {
+        position: relative !important;
     }
 
     .burn-mouth {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin: 0 auto 3rem;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 0 auto 2rem;
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
+    }
+
+    /* Polaroid group mobile - simplified layout */
+    .polaroid-group {
+        height: auto;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .folder-image {
+        position: relative !important;
+        width: 220px !important;
+        left: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin: 0 auto;
+    }
+
+    .main-poster-image {
+        position: absolute !important;
+        width: 70px !important;
+        top: 15px !important;
+        left: 25px !important;
+        transform: rotate(-5deg) !important;
+    }
+
+    /* Hide polaroids on mobile - too cluttered */
+    .polaroid-top-top-right,
+    .polaroid-top-bottom-right,
+    .polaroid-bottom-left,
+    .polaroid-bottom-top-right,
+    .polaroid-bottom-bottom-right {
+        display: none;
     }
 
     .posters {
-        position: relative;
-        top: 0;
-        left: 0;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
         width: 100%;
-        max-width: 340px;
+        max-width: 300px;
         margin: 0 auto;
     }
 
@@ -1691,38 +1782,46 @@ body {
         width: 100%;
         height: auto;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 
     .poster {
         position: relative !important;
-        width: 140px !important;
-        margin: 1rem auto;
+        width: 180px !important;
+        margin: 0 auto;
         top: auto !important;
         left: auto !important;
         right: auto !important;
+        bottom: auto !important;
         transform: none !important;
         display: block;
     }
 
-    .poster:nth-child(1),
-    .poster:nth-child(2),
-    .poster:nth-child(3),
-    .poster:nth-child(4),
-    .poster:nth-child(5) {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        transform: none !important;
+    .poster-folder {
+        display: none;
     }
 
-    .polaroid-group {
-        height: auto;
+    .work-poster-decor {
+        display: none;
     }
 
     /* Showreel mobile */
     .showreel {
-        padding: 5rem 1.5rem;
+        padding: 5rem 1rem;
+        overflow-x: hidden;
+    }
+
+    .showreel-title {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    .showreel-title img {
+        height: 50px;
     }
 
     .showreel-container {
@@ -1731,19 +1830,35 @@ body {
 
     /* Education mobile */
     .education {
-        padding: 5rem 1.5rem;
+        padding: 5rem 1rem;
+        overflow-x: hidden;
+    }
+
+    .education-title {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .education-title img {
+        height: 45px !important;
+        margin-top: 0 !important;
     }
 
     .education-title img:first-child {
-        height: 140px;
-    }
-
-    .education-title img:not(:first-child) {
-        margin-top: 60px;
+        height: 45px !important;
+        margin-right: 0 !important;
     }
 
     .edu-item h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .education-content {
+        padding: 0 0.5rem;
     }
 
     .afda-logo {
@@ -1765,22 +1880,40 @@ body {
 
     /* Contact mobile */
     .contacts {
-        padding: 5rem 1.5rem;
+        padding: 5rem 1rem;
+        overflow-x: hidden;
+    }
+
+    .contact-title-line1,
+    .contact-title-line2 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    .contact-title-line1 img,
+    .contact-title-line2 img {
+        height: 60px;
     }
 
     .contact-liquid-top-left,
     .contact-liquid-bottom-right {
-        width: 150px;
-        opacity: 0.6;
+        width: 120px;
+        opacity: 0.5;
     }
 
     .contact-info p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .email {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         word-break: break-word;
+    }
+
+    .cv-download {
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
     }
 
     /* Work flip modal mobile */
@@ -1903,11 +2036,9 @@ body {
         width: 100px;
     }
 
-    /* Skills Sticky Note extra small */
-    .skills-sticky-note {
-        width: 80px;
-        top: 8%;
-        right: 3%;
+    /* Skills title extra small */
+    .skills-title img {
+        height: 50px;
     }
 
     /* Work section extra small */
@@ -1917,39 +2048,48 @@ body {
 
     /* Work Sticky Note extra small */
     .work-sticky-note {
-        width: 80px;
-        bottom: 3%;
-        right: 2%;
+        width: 70px;
+        top: 1%;
     }
 
     .work-layout {
         gap: 1.5rem;
     }
 
+    .work-title-line1 img,
+    .work-title-line2 img {
+        height: 50px;
+    }
+
     .burn-mouth {
-        max-width: 280px;
+        max-width: 240px;
+    }
+
+    .folder-image {
+        width: 180px !important;
+    }
+
+    .main-poster-image {
+        width: 55px !important;
+        top: 12px !important;
+        left: 20px !important;
     }
 
     .posters {
-        max-width: 300px;
+        max-width: 260px;
     }
 
     .poster {
-        width: 120px !important;
-    }
-
-    .work-poster-decor,
-    .polaroid-top-top-right,
-    .polaroid-top-bottom-right,
-    .polaroid-bottom-left,
-    .polaroid-bottom-top-right,
-    .polaroid-bottom-bottom-right {
-        display: none;
+        width: 150px !important;
     }
 
     /* Showreel extra small */
     .showreel {
         padding: 4rem 1rem;
+    }
+
+    .showreel-title img {
+        height: 40px;
     }
 
     .showreel-video {
@@ -1958,7 +2098,11 @@ body {
 
     /* Education extra small */
     .education {
-        padding: 4rem 1rem;
+        padding: 4rem 0.5rem;
+    }
+
+    .education-title img {
+        height: 35px !important;
     }
 
     .education-title img:first-child {
@@ -1989,6 +2133,11 @@ body {
 
     .email {
         font-size: 1.2rem;
+    }
+
+    .cv-download {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.5rem;
     }
 
     /* Work flip modal extra small */

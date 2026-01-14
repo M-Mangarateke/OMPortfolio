@@ -987,44 +987,55 @@ function injectLiquidChromeStyles() {
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
+      .intro-content {
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+
       .intro-text {
-        width: min(600px, 92vw);
+        width: min(500px, 85vw);
       }
 
       .intro-explore-btn {
-        width: 150px;
+        width: 140px;
       }
 
       .intro-loading {
-        width: min(150px, 75vw);
+        width: min(140px, 70vw);
         height: 6px;
       }
 
       .intro-sticky-note {
-        width: 100px;
-        bottom: 5%;
-        right: 3%;
+        width: 90px;
+        bottom: auto;
+        top: 12%;
+        right: 5%;
       }
     }
 
     @media (max-width: 480px) {
+      .intro-content {
+        padding: 1rem;
+        gap: 0.8rem;
+      }
+
       .intro-text {
-        width: min(480px, 94vw);
+        width: min(380px, 90vw);
       }
 
       .intro-explore-btn {
-        width: 120px;
+        width: 110px;
       }
 
       .intro-loading {
-        width: min(120px, 80vw);
+        width: min(110px, 75vw);
         height: 5px;
       }
 
       .intro-sticky-note {
-        width: 80px;
-        bottom: 3%;
-        right: 2%;
+        width: 70px;
+        top: 10%;
+        right: 3%;
       }
     }
   `;

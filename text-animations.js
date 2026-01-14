@@ -277,6 +277,8 @@ function setupAboutTextAnimation() {
     ScrollTrigger.create({
       trigger: aboutTitle,
       start: 'top 80%',
+      once: true, // Only trigger once
+      fastScrollEnd: true, // Handle fast scrolling
       onEnter: () => {
         gsap.from(line1Letters, {
           y: 50,
@@ -473,11 +475,20 @@ function setupScrambleAnimations() {
   // About section paragraphs only
   const aboutParagraphs = document.querySelectorAll('.about-text p');
   aboutParagraphs.forEach((p, index) => {
+    // Store original text and mark as not animated
+    const originalText = p.textContent;
+    p.dataset.animated = 'false';
+
     ScrollTrigger.create({
       trigger: p,
       start: 'top 85%',
+      once: true, // Only trigger once to prevent re-animation
+      fastScrollEnd: true, // Handle fast scrolling better
       onEnter: () => {
-        const originalText = p.textContent;
+        // Prevent duplicate animations
+        if (p.dataset.animated === 'true') return;
+        p.dataset.animated = 'true';
+
         scrambleText(p, {
           text: originalText,
           duration: 1.5,
