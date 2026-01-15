@@ -1713,24 +1713,33 @@ a[href^="tel"]:visited {
     }
 
     .work-gallery {
-        width: 680px;
-        max-width: none;
-        min-height: 360px;
-        display: block;
-        transform: translateX(calc(-50% + 50vw)) scale(0.75);
-        transform-origin: top center;
-        margin: 0;
+        width: 100%;
+        max-width: 360px;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.75rem;
+        padding-top: 0;
+        transform: none;
+        margin: 0 auto;
     }
 
     .work-section {
-        position: absolute;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .burn-mouth {
-        width: 300px;
-        top: 0;
-        left: 0;
-        margin: 0;
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        top: auto;
+        left: auto;
+        margin: 0 auto;
+        order: 1;
     }
 
     .polaroid-group {
@@ -1765,17 +1774,20 @@ a[href^="tel"]:visited {
     }
 
     .posters {
-        position: absolute;
-        top: 0;
-        left: 320px;
-        width: 340px;
-        margin: 0;
+        position: relative;
+        width: 100%;
+        max-width: 340px;
+        top: auto;
+        left: auto;
+        margin: 0 auto;
+        order: 2;
     }
 
     .poster-grid {
         height: 320px;
         position: relative;
         display: block;
+        width: 100%;
     }
 
     .poster {
@@ -1934,7 +1946,7 @@ a[href^="tel"]:visited {
 
 @media (max-width: 600px) {
     .work-gallery {
-        transform: translateX(calc(-50% + 50vw)) scale(0.65);
+        transform: none;
     }
 }
 
@@ -2075,7 +2087,7 @@ a[href^="tel"]:visited {
     }
 
     .work-gallery {
-        transform: translateX(calc(-50% + 50vw)) scale(0.58);
+        transform: none;
     }
 
     /* Showreel extra small */
@@ -2171,7 +2183,7 @@ a[href^="tel"]:visited {
 
 @media (max-width: 420px) {
     .work-gallery {
-        transform: translateX(calc(-50% + 50vw)) scale(0.55);
+        transform: none;
     }
 
     .showreel-title {
@@ -2277,7 +2289,7 @@ a[href^="tel"]:visited {
     }
 
     .work-gallery {
-        transform: translateX(calc(-50% + 50vw)) scale(0.52);
+        transform: none;
     }
 
     .showreel-title {
