@@ -381,12 +381,63 @@
         </div>
 
         <div class="contact-info" data-reveal-text>
-            <p>For your attention, let's get in touch! <br>
-            Phone Number: +27 67 026 8711</p>
-            <a href="mailto:oreneilemachitje@gmail.com" class="email">Email: oreneilemachitje@gmail.com</a>
-            <a href="assets/OreCV.pdf" download="Oreneile_Machitje_CV.pdf" class="cv-download">Download CV</a>
+            <p>For your attention!</p>
+                <br>
+                <br>
+            <button type="button" class="cv-download cv-request-btn">Request CV</button>
         </div>
     </section>
+
+    <!-- CV Request Modal -->
+    <div class="cv-modal-overlay" id="cvModal">
+        <div class="cv-modal">
+            <button type="button" class="cv-modal-close" aria-label="Close modal">&times;</button>
+            <h2 class="cv-modal-title">Request CV</h2>
+            <p class="cv-modal-subtitle">Please provide your details for verification</p>
+
+            <form name="cv-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cv-request-form" id="cvRequestForm">
+                <input type="hidden" name="form-name" value="cv-request">
+                <p class="hidden" style="display:none;">
+                    <label>Don't fill this out: <input name="bot-field"></label>
+                </p>
+
+                <div class="form-group">
+                    <label for="requester-name">Full Name *</label>
+                    <input type="text" id="requester-name" name="name" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="requester-email">Email Address *</label>
+                    <input type="email" id="requester-email" name="email" required placeholder="your.email@company.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="requester-company">Company / Organization *</label>
+                    <input type="text" id="requester-company" name="company" required placeholder="Company name">
+                </div>
+
+                <div class="form-group">
+                    <label for="requester-position">Your Position / Role *</label>
+                    <input type="text" id="requester-position" name="position" required placeholder="e.g. HR Manager, Recruiter">
+                </div>
+
+                <div class="form-group">
+                    <label for="requester-reason">Reason for Request *</label>
+                    <textarea id="requester-reason" name="reason" required placeholder="Please briefly explain why you are requesting the CV (e.g. job opportunity, freelance project, etc.)" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="cv-submit-btn">Submit Request</button>
+            </form>
+
+            <!-- Success Message (hidden by default) -->
+            <div class="cv-success-message" id="cvSuccessMessage">
+                <div class="success-icon">&#10003;</div>
+                <h3>Request Submitted!</h3>
+                <p>Thank you for your interest. Your request will be reviewed and the CV will be sent to your email upon verification.</p>
+                <button type="button" class="cv-close-success-btn">Close</button>
+            </div>
+        </div>
+    </div>
 
     <!-- GSAP Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -425,6 +476,9 @@
 
     <!-- Mobile Navigation -->
     <script src="mobile-nav.js"></script>
+
+    <!-- CV Request Modal -->
+    <script src="cv-request.js"></script>
 
     <script src="script.js"></script>
 </body>
