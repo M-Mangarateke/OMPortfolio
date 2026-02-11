@@ -3,429 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <title>Oreneile Machitje | Motion Picture & VFX</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Oreneile Machitje | Coming Soon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #b8a3b3 0%, #9a8494 50%, #7d6b77 100%);
+            color: #2c2c2c;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #d4c4cf, #c9b5c3);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #a08a9a, #8a7484);
+            bottom: -50px;
+            right: -50px;
+            animation-delay: -4s;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #e0d4dc, #cfc0ca);
+            top: 50%;
+            right: 20%;
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+        }
+
+        .name {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 50%, #2c2c2c 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .tagline {
+            font-size: clamp(0.875rem, 3vw, 1.125rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #4a4a4a;
+            margin-bottom: 3rem;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .pulse {
+            width: 10px;
+            height: 10px;
+            background: #4a4a4a;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .status-text {
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #2c2c2c;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.75rem;
+            color: #5a5a5a;
+            letter-spacing: 0.1em;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <button class="nav-hamburger" aria-label="Toggle navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-container">
-            <a href="#home" class="nav-link">HOME</a>
-            <a href="#about" class="nav-link">ABOUT ME</a>
-            <a href="#skills" class="nav-link">MY SKILLS</a>
-            <a href="#work" class="nav-link nav-link-portfolio">PORTFOLIO</a>
-            <a href="#portfolio" class="nav-link">SHOWREEL</a>
-            <a href="#education" class="nav-link">EDUCATION</a>
-            <a href="#contacts" class="nav-link">CONTACT</a>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container">
+        <h1 class="name">Oreneile Machitje</h1>
+        <p class="tagline">Motion Picture & VFX</p>
+
+        <div class="status">
+            <span class="pulse"></span>
+            <span class="status-text">New portfolio coming soon</span>
         </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <!-- Liquid Design Decorations -->
-        <img src="assets/images/hero/HeroLiquidDesignTopLeft.svg" class="hero-liquid-top-left" alt="">
-        <img src="assets/images/hero/HeroLiquidDesignBottomRight.svg" class="hero-liquid-bottom-right" alt="">
-
-        <div class="hero-content">
-            <!-- Liquid Chrome Text for ORENEILE -->
-            <div class="hero-name" data-reveal-heading>
-                <div class="hero-name-line1">
-                    <img src="assets/images/liquidchrometext/HeroNameO.svg" alt="O">
-                    <img src="assets/images/liquidchrometext/HeroNameR.svg" alt="R">
-                    <img src="assets/images/liquidchrometext/HeroNameE.svg" alt="E">
-                    <img src="assets/images/liquidchrometext/HeroNameN.svg" alt="N">
-                    <img src="assets/images/liquidchrometext/HeroNameE.svg" alt="E">
-                    <img src="assets/images/liquidchrometext/HeroNameI.svg" alt="I">
-                    <img src="assets/images/liquidchrometext/HeroNameL.svg" alt="L">
-                    <img src="assets/images/liquidchrometext/HeroNameE.svg" alt="E">
-                </div>
-                <!-- Liquid Chrome Text for MACHITJE -->
-                <div class="hero-name-line2">
-                    <img src="assets/images/liquidchrometext/HeroSurnameM.svg" alt="M">
-                    <img src="assets/images/liquidchrometext/HeroSurnameA.svg" alt="A">
-                    <img src="assets/images/liquidchrometext/HeroSurnameC.svg" alt="C">
-                    <img src="assets/images/liquidchrometext/HeroSurnameH.svg" alt="H">
-                    <img src="assets/images/liquidchrometext/HeroSurnameI.svg" alt="I">
-                    <img src="assets/images/liquidchrometext/HeroSurnameT.svg" alt="T">
-                    <img src="assets/images/liquidchrometext/HeroSurnameJ.svg" alt="J">
-                    <img src="assets/images/liquidchrometext/HeroSurnameE.svg" alt="E">
-                </div>
-            </div>
-
-            <!-- Film Strip -->
-            <div class="film-strip-container" data-reveal>
-                <img src="assets/images/hero/herofilmstrip.png" alt="Film Strip" class="film-strip">
-            </div>
-
-            <!-- Explore Button -->
-            <img src="assets/images/hero/herobutton.png" alt="Explore" class="explore-btn">
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about" class="about">
-        <div class="about-content">
-            <div class="profile-image" data-reveal>
-                <img src="assets/images/about/AboutProfilePic.svg" alt="Oreneile Machitje">
-            </div>
-            <div class="about-right">
-                <!-- Liquid Chrome Text for ABOUT ME -->
-                <div class="about-title" data-reveal-heading>
-                    <div class="about-title-line1">
-                        <img src="assets/images/liquidchrometext/AboutLiquidA.svg" alt="A">
-                        <img src="assets/images/liquidchrometext/AboutLiquidB.svg" alt="B">
-                        <img src="assets/images/liquidchrometext/AboutLiquidO.svg" alt="O">
-                        <img src="assets/images/liquidchrometext/AboutLiquidU.svg" alt="U">
-                        <img src="assets/images/liquidchrometext/AboutLiquidT.svg" alt="T">
-                    </div>
-                    <div class="about-title-line2">
-                        <img src="assets/images/liquidchrometext/AboutLiquidM.svg" alt="M">
-                        <img src="assets/images/liquidchrometext/AboutLiquidE.svg" alt="E">
-                    </div>
-                </div>
-                <div class="about-text" data-reveal-text>
-                    <p>I am Oreneile Machitje, a Motion Picture graduate with a major in Directing and Visual Effects, trained in both the creative and technical aspects of filmmaking. I work as a multidisciplinary creative across directing, visual storytelling, and post-production, with a strong focus on creating visually engaging and emotionally driven content.</p>
-
-                    <p>My background has equipped me with a solid understanding of narrative development, shot composition, working with performers, and integrating visual effects into story-driven projects. I am comfortable working in collaborative environments and bringing a flexible, detail-oriented, and creative approach to every production.</p>
-
-                    <p>I am seeking opportunities within the film and creative industries where I can continue to grow, contribute meaningfully, and develop impactful visual work.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <!-- Part 1: Scattered Software Icons -->
-        <div class="skills-part1">
-            <!-- Liquid Design Decorations -->
-            <img src="assets/images/skills/SkillsLiquidDesignBottomLeft.svg" class="skills-liquid-bottom-left" alt="">
-
-            <!-- Skills Sticky Note -->
-            <img src="assets/images/skills/SkillsStickyNote.svg" class="skills-sticky-note" alt="Drag the icons!">
-
-            <!-- Liquid Chrome Text for SKILLS -->
-            <div class="section-title">
-                <div class="skills-title" data-reveal-heading>
-                    <img src="assets/images/liquidchrometext/SkillsLiquidS.svg" alt="S">
-                    <img src="assets/images/liquidchrometext/SkillsLiquidK.svg" alt="K">
-                    <img src="assets/images/liquidchrometext/SkillsLiquidI.svg" alt="I">
-                    <img src="assets/images/liquidchrometext/SkillsLiquidL.svg" alt="L">
-                    <img src="assets/images/liquidchrometext/SkillsLiquidL.svg" alt="L">
-                    <img src="assets/images/liquidchrometext/SkillsLiquidS.svg" alt="S">
-                </div>
-            </div>
-
-            <!-- Scattered Software Icons -->
-            <div class="software-icons-scattered" data-reveal-grid>
-                <div class="icon-item icon-after-effects">
-                    <img src="assets/images/skills/SkillsAfterEffects.svg" alt="After Effects">
-                </div>
-                <div class="icon-item icon-illustrator">
-                    <img src="assets/images/skills/SkillsIlustrator.svg" alt="Illustrator">
-                </div>
-                <div class="icon-item icon-maya">
-                    <img src="assets/images/skills/SkillsMaya.svg" alt="Maya">
-                </div>
-                <div class="icon-item icon-word">
-                    <img src="assets/images/skills/SkillsWord.svg" alt="Word">
-                </div>
-                <div class="icon-item icon-powerpoint">
-                    <img src="assets/images/skills/SkillsPowerpoint.svg" alt="PowerPoint">
-                </div>
-                <div class="icon-item icon-photoshop">
-                    <img src="assets/images/skills/SkillsPhotoshop.svg" alt="Photoshop">
-                </div>
-                <div class="icon-item icon-teams">
-                    <img src="assets/images/skills/SkillsTeams.svg" alt="Teams">
-                </div>
-                <div class="icon-item icon-folder">
-                    <img src="assets/images/skills/SkillsFolder.svg" alt="Reniffects">
-                </div>
-            </div>
-        </div>
-
-        <!-- Part 2: Skills Listings -->
-        <div class="skills-part2">
-            <!-- Page 2 Decorations -->
-            <img src="assets/images/skills/SkillsLiquidDesignPage2TopLeft.svg" class="skills-liquid-page2-top-left" alt="">
-            <img src="assets/images/skills/SkillsLiquidDesignPage2BottomMiddle.svg" class="skills-liquid-page2-bottom-middle" alt="">
-            <img src="assets/images/skills/SkillsLiquidDesignPage2BottomRight.svg" class="skills-liquid-page2-bottom-right" alt="">
-
-            <!-- Skills Content -->
-            <div class="skills-content">
-                <div class="skills-left">
-                    <img src="assets/images/skills/SkillsMovieSlate.svg" alt="Movie Slate" class="movie-slate" data-reveal>
-                    <div class="skills-category" data-reveal-text>
-                        <h3>Technical Skills</h3>
-                        <ul>
-                            <li>Visual Effects compositing (2D & 3D integration)</li>
-                            <li>Motion tracking & match moving</li>
-                            <li>Rotoscoping and keying</li>
-                            <li>Green screen / chroma key</li>
-                            <li>3D modeling, texturing, and basic animation</li>
-                            <li>Lighting and rendering for VFX integration</li>
-                            <li>Image cleanup and visual enhancement</li>
-                            <li>Rendering pipelines and file optimization</li>
-                            <li>Modelling & Animation</li>
-                            <li>Image replacement & projection</li>
-                            <li>Title Sequence Animation</li>
-                            <li>Freeze Frame Animation</li>
-                            <li>Text & Graphics Pop Up Animation</li>
-                            <li>Clone Effect Animation</li>
-                        </ul>
-                    </div>
-                    <img src="assets/images/skills/SkillsPopcorn.svg" alt="Popcorn" class="movie-popcorn" data-reveal>
-                </div>
-
-                <div class="skills-right">
-                    <div class="skills-category creative-skills" data-reveal-text>
-                        <h3>Creative Skills</h3>
-                        <ul>
-                            <li>Visual storytelling and shot design</li>
-                            <li>Understanding of cinematography for VFX</li>
-                            <li>Composition, scale, and realism</li>
-                            <li>Attention to detail and visual continuity</li>
-                            <li>Ability to match lighting, perspective, and motion</li>
-                            <li>Problem-solving for complex visual challenges</li>
-                        </ul>
-                    </div>
-
-                    <img src="assets/images/skills/SkillsMovieStar.svg" alt="Movie Star" class="movie-star" data-reveal>
-
-                    <div class="skills-category professional-skills" data-reveal-text>
-                        <h3>Professional & Workflow Skills</h3>
-                        <ul>
-                            <li>Understanding of VFX pipelines and production workflows</li>
-                            <li>File organization and version control</li>
-                            <li>Giving and receiving creative feedback</li>
-                            <li>Time management and meeting deadlines</li>
-                            <li>Collaboration with directors, editors, and other artists</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- My Work Section -->
-    <section id="work" class="work">
-        <!-- Liquid Design Decorations -->
-        <img src="assets/images/work/WorkLiquidDesign.svg" class="work-liquid-design" alt="">
-
-        <!-- Work Sticky Note -->
-        <img src="assets/images/work/WorkStickyNote.svg" class="work-sticky-note" alt="Click to flip!">
-
-        <div class="work-layout">
-            <!-- Work Gallery -->
-            <div class="work-gallery">
-                <!-- Burn Mouth Section -->
-                <div class="work-section burn-mouth" data-reveal>
-                    <div class="polaroid-group">
-                        <!-- Folder - Base layer -->
-                        <img src="assets/images/work/WorkBurnMouthFolder.svg" alt="Burn Mouth Folder" class="folder-image">
-
-                        <!-- Main Poster -->
-                        <img src="assets/images/work/WorkBurnMouthPoster.svg" alt="Burn Mouth" class="main-poster-image clickable-work"
-                             data-title="Burn Mouth"
-                             data-description="Official poster for Burn Mouth - A short film exploring the complexities of identity and expression. Directed and produced with a focus on visual effects and compelling narrative.">
-
-                        <!-- Polaroid Images stacked on folder -->
-                        <img src="assets/images/work/WorkBurnMouthTopTopRight.svg" class="polaroid-top-top-right clickable-work" alt="Behind the scenes"
-                             data-title="Production Still #1"
-                             data-description="Grad-Fest with my family!">
-                        <img src="assets/images/work/WorkBurnMouthTopBottomRight.svg" class="polaroid-top-bottom-right clickable-work" alt="Behind the scenes"
-                             data-title="Production Still #2"
-                             data-description="A candid shot of me in-Front of the poster I designed!!!">
-                        <img src="assets/images/work/WorkBurnMouthBottomLeft.svg" class="polaroid-bottom-left clickable-work" alt="Behind the scenes"
-                             data-title="Production Still #3"
-                             data-description="Exclusive BurnMouth Poster.">
-                        <img src="assets/images/work/WorkBurnMouthBottomTopRight.svg" class="polaroid-bottom-top-right clickable-work" alt="Behind the scenes"
-                             data-title="Production Still #4"
-                             data-description="Cast and crew equipment.">
-                        <img src="assets/images/work/WorkBurnMouthBottomBottomRight.svg" class="polaroid-bottom-bottom-right clickable-work" alt="Behind the scenes"
-                             data-title="Production Still #5"
-                             data-description="Final moments before calling action on an important take.">
-                    </div>
-                </div>
-
-                <!-- Posters Section -->
-                <div class="work-section posters">
-                    <img src="assets/images/work/WorkPosterBottomRight.svg" class="work-poster-decor clickable-work" alt="Design element"
-                         data-title="Creative Design Element"
-                         data-description="Job-shadowing at the theater.">
-
-                    <div class="poster-grid" data-reveal-grid>
-                        <img src="assets/images/work/WorkPosterDoechii.svg" alt="Doechii Poster" class="poster clickable-work"
-                             data-title="Doechii - Artist Poster"
-                             data-description="Conceptual poster design for artist Doechii, featuring bold colors and dynamic composition that reflects her unique artistic style and energy.">
-                        <img src="assets/images/work/WorkPosterTheWeeknd.svg" alt="The Weeknd Poster" class="poster clickable-work"
-                             data-title="The Weeknd - Concert Poster"
-                             data-description="Promotional poster design for The Weeknd, incorporating atmospheric visuals and striking imagery that captures the essence of his musical aesthetic.">
-                        <img src="assets/images/work/WorkPosterUncleWaffles.svg" alt="Uncle Waffles Poster" class="poster clickable-work"
-                             data-title="Uncle Waffles - DJ Poster"
-                             data-description="Vibrant poster design for DJ and producer Uncle Waffles, showcasing energetic visuals that match her high-energy performances.">
-                        <img src="assets/images/work/WorkPosterGenZ.svg" alt="Gen Z Poster" class="poster clickable-work"
-                             data-title="Gen Z - Editorial Design"
-                             data-description="Editorial poster exploring Gen Z culture, featuring contemporary design elements and bold typography that speaks to a new generation.">
-                        <img src="assets/images/work/WorkPosterBridgingTheGap.svg" alt="Bridging The Gap Poster" class="poster clickable-work"
-                             data-title="Bridging The Gap"
-                             data-description="Conceptual poster addressing themes of connection and unity, designed with thoughtful composition and meaningful visual metaphors.">
-                        <img src="assets/images/work/WorkPosterFolder.svg" alt="Poster Folder" class="poster poster-folder">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Liquid Chrome Text for MY WORK -->
-            <div class="section-title">
-                <div class="work-title-line1" data-reveal-heading>
-                    <img src="assets/images/liquidchrometext/WorkLiquidM.svg" alt="M">
-                    <img src="assets/images/liquidchrometext/WorkLiquidY.svg" alt="Y">
-                </div>
-                <div class="work-title-line2" data-reveal-heading>
-                    <img src="assets/images/liquidchrometext/WorkLiquidW.svg" alt="W">
-                    <img src="assets/images/liquidchrometext/WorkLiquidO.svg" alt="O">
-                    <img src="assets/images/liquidchrometext/WorkLiquidR.svg" alt="R">
-                    <img src="assets/images/liquidchrometext/WorkLiquidK.svg" alt="K">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Showreel Section -->
-    <section id="portfolio" class="showreel">
-        <!-- Liquid Chrome Text for SHOWREEL -->
-        <div class="section-title">
-            <div class="showreel-title" data-reveal-heading>
-                <img src="assets/images/liquidchrometext/ShowreelLiquidS.svg" alt="S">
-                <img src="assets/images/liquidchrometext/ShowreelLiquidH.svg" alt="H">
-                <img src="assets/images/liquidchrometext/ShowreelLiquidO.svg" alt="O">
-                <img src="assets/images/liquidchrometext/ShowreelLiquidW.svg" alt="W">
-                <img src="assets/images/liquidchrometext/ShowreelLiquidR.svg" alt="R">
-                <img src="assets/images/liquidchrometext/ShowreelLiquidE.svg" alt="E">
-                <img src="assets/images/liquidchrometext/ShowreelLiquidE.svg" alt="E">
-                <img src="assets/images/liquidchrometext/ShowreelLiquidL.svg" alt="L">
-            </div>
-        </div>
-
-        <div class="showreel-container" data-reveal>
-            <video controls class="showreel-video">
-                <source src="assets/videos/showreel/Showreel.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <!-- Liquid Design Decorations -->
-        <img src="assets/images/education/EducationLiquidDesignBottomLeft.svg" class="education-liquid-bottom-left" alt="">
-
-        <!-- Liquid Chrome Text for EDUCATION -->
-        <div class="section-title">
-            <div class="education-title" data-reveal-heading>
-                <img src="assets/images/liquidchrometext/EducationLiquidE.svg" alt="E">
-                <img src="assets/images/liquidchrometext/EducationLiquidD.svg" alt="D">
-                <img src="assets/images/liquidchrometext/EducationLiquidU.svg" alt="U">
-                <img src="assets/images/liquidchrometext/EducationLiquidC.svg" alt="C">
-                <img src="assets/images/liquidchrometext/EducationLiquidA.svg" alt="A">
-                <img src="assets/images/liquidchrometext/EducationLiquidT.svg" alt="T">
-                <img src="assets/images/liquidchrometext/EducationLiquidI.svg" alt="I">
-                <img src="assets/images/liquidchrometext/EducationLiquidO.svg" alt="O">
-                <img src="assets/images/liquidchrometext/EducationLiquidN.svg" alt="N">
-            </div>
-        </div>
-
-        <div class="education-content" data-reveal-text>
-            <div class="edu-item">
-                <h3>Matric Certificate: Acquired at Cornerstone College, Year: 2022</h3>
-            </div>
-            <div class="edu-item primary">
-                <h3>Degree: Bachelor of Arts in Motion Picture with a Major in Directing & Visual Effects (VFX)<br>
-                Educational Institution: AFDA Film School<br>
-                Year of Graduation: 2026</h3>
-            </div>
-        </div>
-
-        <div class="afda-logo" data-reveal>
-            <img src="assets/images/education/EducationAFDALogo.svg" alt="AFDA Logo">
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacts" class="contacts">
-        <!-- Liquid Design Decorations -->
-        <img src="assets/images/contact/ContactLiquidDesignTopLeft.svg" class="contact-liquid-top-left" alt="">
-        <img src="assets/images/contact/ContactLiquidDesignBottomRight.svg" class="contact-liquid-bottom-right" alt="">
-
-        <!-- Liquid Chrome Text for THANK YOU -->
-        <div class="section-title">
-            <div class="contact-title-line1" data-reveal-heading>
-                <img src="assets/images/liquidchrometext/ContactLiquidT.svg" alt="T">
-                <img src="assets/images/liquidchrometext/ContactLiquidH.svg" alt="H">
-                <img src="assets/images/liquidchrometext/ContactLiquidA.svg" alt="A">
-                <img src="assets/images/liquidchrometext/ContactLiquidN.svg" alt="N">
-                <img src="assets/images/liquidchrometext/ContactLiquidK.svg" alt="K">
-            </div>
-            <div class="contact-title-line2" data-reveal-heading>
-                <img src="assets/images/liquidchrometext/ContactLiquidY.svg" alt="Y">
-                <img src="assets/images/liquidchrometext/ContactLiquidO.svg" alt="O">
-                <img src="assets/images/liquidchrometext/ContactLiquidU.svg" alt="U">
-            </div>
-        </div>
-
-        <div class="contact-info" data-reveal-text>
-            <p>For your attention, let's get in touch! <br>
-            Phone Number: +27 67 026 8711</p>
-            <a href="mailto:oreneilemachitje@gmail.com" class="email">Email: oreneilemachitje@gmail.com</a>
-            <a href="assets/OreCV.pdf" download="Oreneile_Machitje_CV.pdf" class="cv-download">Download CV</a>
-        </div>
-    </section>
-
-    <!-- GSAP Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
-
-    <!-- Motion Configuration -->
-    <script src="motion-config.js"></script>
-
-    <!-- Custom Text Effects (SplitText & ScrambleText alternatives) -->
-    <script src="text-effects.js"></script>
-
-    <!-- Intro Overlay - Phase 2 -->
-    <script src="intro-overlay.js"></script>
-
-    <!-- GSAP Animations - Phase 1 -->
-    <script src="gsap-animations.js"></script>
-
-    <!-- Advanced Text Animations (Split & Scramble) -->
-    <script src="text-animations.js"></script>
-
-    <!-- Smooth Scroll and Navigation - Phase 3 -->
-    <script src="smooth-scroll-nav.js"></script>
-
-    <!-- Skills Draggable Functionality -->
-    <script src="skills-draggable.js"></script>
-
-    <!-- AFDA Logo Throwable Functionality -->
-    <script src="afda-throwable.js"></script>
-
-    <!-- Work Flip Interactions -->
-    <script src="work-flip.js"></script>
-
-    <!-- Mobile Navigation -->
-    <script src="mobile-nav.js"></script>
-
-    <script src="script.js"></script>
+    <p class="footer">Something beautiful is on its way</p>
 </body>
 </html>
