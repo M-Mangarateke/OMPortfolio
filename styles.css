@@ -1365,6 +1365,247 @@ a[href^="tel"]:visited {
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
+/* CV Request Modal */
+.cv-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 1rem;
+}
+
+.cv-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cv-modal {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cv-modal-overlay.active .cv-modal {
+    transform: scale(1) translateY(0);
+}
+
+.cv-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.cv-modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cv-modal-title {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.cv-modal-subtitle {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cv-request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #b8a3b3;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.cv-submit-btn {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #b8a3b3 0%, #9a8494 100%);
+    color: #2c2c2c;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.cv-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(184, 163, 179, 0.4);
+}
+
+.cv-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Success Message */
+.cv-success-message {
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.cv-success-message.active {
+    display: block;
+}
+
+.cv-request-form.hidden {
+    display: none;
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #b8a3b3 0%, #9a8494 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+    color: #2c2c2c;
+}
+
+.cv-success-message h3 {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+}
+
+.cv-success-message p {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.cv-close-success-btn {
+    font-family: 'Agrandir', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cv-close-success-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* CV Modal Mobile Styles */
+@media (max-width: 600px) {
+    .cv-modal {
+        padding: 1.5rem;
+        margin: 0.5rem;
+    }
+
+    .cv-modal-title {
+        font-size: 1.4rem;
+    }
+
+    .cv-modal-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .cv-submit-btn {
+        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+    }
+}
+
 /* Touch-friendly improvements for all mobile/tablet devices */
 @media (hover: none) and (pointer: coarse) {
     /* Increase touch targets */
