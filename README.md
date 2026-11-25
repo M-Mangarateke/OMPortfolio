@@ -5,7 +5,7 @@ Single-page portfolio for Motion Picture and VFX work built with HTML, CSS, and 
 ## Sections (in order)
 
 - Navigation: anchor links for every section, active link highlight, background changes on scroll.
-- Hero (Home): liquid chrome name, film strip, optional intro, and Explore button that scrolls to About.
+- Hero (Home): entrance intro, liquid chrome name, film strip, and Explore button that scrolls to About.
 - About Me: profile image and bio text blocks.
 - Skills: scattered software icons followed by technical, creative, and professional lists.
 - My Work: Burn Mouth polaroid stack and a poster grid collage.

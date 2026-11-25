@@ -33,14 +33,14 @@ const HERO_ANIMATION_ASSETS = [
 document.addEventListener('DOMContentLoaded', () => {
   window.introOverlayActive = false;
   window.heroAssetsReady = true;
-  if (motionConfig.reducedMotion || typeof gsap === 'undefined') return;
+  if (!window.motionConfig || window.motionConfig.reducedMotion || typeof gsap === 'undefined') return;
 
-  window.triggerHeroAnimations?.();
-  const replay = document.querySelector('.intro-replay');
-  if (!replay || typeof document.createElement('dialog').showModal !== 'function') return;
+  if (typeof document.createElement('dialog').showModal !== 'function') {
+    window.triggerHeroAnimations?.();
+    return;
+  }
 
-  replay.hidden = false;
-  replay.addEventListener('click', initIntroOverlay);
+  initIntroOverlay();
 });
 
 /**
@@ -54,9 +54,6 @@ function initIntroOverlay() {
   // Lock scroll immediately
   lockScroll();
 
-  // Hide the original content
-  hideOriginalContent();
-
   // Create and inject the liquid chrome intro
   createLiquidChromeIntro();
 
@@ -67,38 +64,6 @@ function initIntroOverlay() {
   startIntroLoading();
 
   console.log('%c🎬 Liquid Chrome Intro Initialized', 'color: #88ce02; font-weight: bold;');
-}
-
-/**
- * Hide the original navbar and all sections
- */
-function hideOriginalContent() {
-  const navbar = document.querySelector('.navbar');
-  const allSections = document.querySelectorAll('section');
-
-  if (navbar) {
-    navbar.style.visibility = 'hidden';
-  }
-
-  allSections.forEach(section => {
-    section.style.visibility = 'hidden';
-  });
-}
-
-/**
- * Restore visibility of original content
- */
-function restoreOriginalContent() {
-  const navbar = document.querySelector('.navbar');
-  const allSections = document.querySelectorAll('section');
-
-  if (navbar) {
-    navbar.style.visibility = '';
-  }
-
-  allSections.forEach(section => {
-    section.style.visibility = '';
-  });
 }
 
 /**
@@ -122,7 +87,12 @@ function unlockScroll() {
   document.body.style.position = '';
   document.body.style.width = '';
   document.body.style.top = '';
-  window.scrollTo({ top: introScrollPosition, behavior: 'instant' });
+  const destination = document.getElementById(window.location.hash.slice(1));
+  if (destination) {
+    destination.scrollIntoView({ behavior: 'instant' });
+  } else {
+    window.scrollTo({ top: introScrollPosition, behavior: 'instant' });
+  }
 }
 
 /**
@@ -134,11 +104,10 @@ function createLiquidChromeIntro() {
   intro.setAttribute('aria-label', 'Portfolio intro');
   intro.innerHTML = `
     <canvas id="liquid-chrome-canvas" class="liquid-chrome-background"></canvas>
-    <button type="button" class="intro-close" autofocus>Close intro</button>
 
     <div class="intro-content">
       <img src="assets/images/intro/IntroText.svg" alt="Intro" class="intro-text">
-      <img src="assets/images/intro/IntroEnterButton.svg" alt="Enter" class="intro-explore-btn" role="button" tabindex="0" aria-label="Enter">
+      <img src="assets/images/intro/IntroEnterButton.svg" alt="Enter" class="intro-explore-btn" role="button" tabindex="-1" aria-label="Enter" aria-disabled="true">
       <div class="intro-loading">
         <div class="intro-loading-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="intro-loading-progress"></div>
@@ -153,7 +122,6 @@ function createLiquidChromeIntro() {
 
   document.body.appendChild(intro);
   injectLiquidChromeStyles();
-  intro.querySelector('.intro-close').addEventListener('click', () => intro.close());
   intro.addEventListener('close', cleanup, { once: true });
   intro.showModal();
   initWebGLLiquidChrome();
@@ -178,6 +146,9 @@ function setEnterButtonEnabled(enterButton, enabled) {
   enterButton.setAttribute('tabindex', enabled ? '0' : '-1');
   enterButton.dataset.enabled = enabled ? 'true' : 'false';
   enterButton.style.pointerEvents = enabled ? 'auto' : 'none';
+  if (enabled && enterButton.closest('dialog')?.open) {
+    enterButton.focus({ preventScroll: true });
+  }
 }
 
 function updateIntroLoadingProgress(track, progressEl, ratio) {
@@ -299,16 +270,9 @@ function startLiquidTransition() {
     '-=0.2'
   );
 
-  // Step 3: Make hero and navbar visible (off-screen right)
+  // Step 3: Position the hero and navbar off-screen for the wipe
   tl.call(() => {
-    if (navbar) navbar.style.visibility = 'visible';
-    if (heroSection) {
-      heroSection.style.visibility = 'visible';
-      gsap.set(heroSection, { x: '100%' });
-    }
-    if (navbar) {
-      gsap.set(navbar, { x: '100%' });
-    }
+    gsap.set([navbar, heroSection], { x: '100%' });
   });
 
   // Step 4: Slide hero in from right to left
@@ -700,12 +664,9 @@ function cleanup() {
   window.introOverlayActive = false;
   window.heroAssetsReady = true;
 
-  // Restore all sections visibility
-  restoreOriginalContent();
-
   // Unlock scroll
   unlockScroll();
-  document.querySelector('.intro-replay')?.focus({ preventScroll: true });
+  document.querySelector('.hero-name')?.focus({ preventScroll: true });
 
   // Dispatch custom event to trigger hero animations
   const introCompleteEvent = new CustomEvent('intro-complete');
@@ -757,21 +718,6 @@ function injectLiquidChromeStyles() {
       z-index: 10000;
       overflow: hidden;
       background: #0b0b0b;
-    }
-
-    .intro-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 10002;
-      min-height: 44px;
-      padding: 0.5rem 0.75rem;
-      border: 1px solid #ebbbdc;
-      border-radius: 0.25rem;
-      background: #251e27;
-      color: #faf4f8;
-      font: 700 0.875rem/1.2 Agrandir, Arial, sans-serif;
-      cursor: pointer;
     }
 
     /* WebGL Liquid Chrome Background Canvas */
