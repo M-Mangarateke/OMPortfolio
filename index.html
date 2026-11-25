@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <title>Oreneile Machitje | Motion Picture & VFX</title>
+    <meta name="description" content="Oreneile Machitje’s portfolio in motion picture, directing, visual effects and social media video editing.">
+    <link rel="canonical" href="https://oreneilemachitje.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Oreneile Machitje | Motion Picture & VFX">
+    <meta property="og:description" content="Portfolio in motion picture, directing, visual effects and social media video editing.">
+    <meta property="og:url" content="https://oreneilemachitje.com/">
+    <meta property="og:image" content="https://oreneilemachitje.com/assets/images/branding/share-card.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Oreneile Machitje’s portfolio cover with a filmstrip on a plum background.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://oreneilemachitje.com/assets/images/branding/share-card.jpg">
+    <meta name="twitter:image:alt" content="Oreneile Machitje’s portfolio cover with a filmstrip on a plum background.">
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="apple-touch-icon" href="assets/images/branding/apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,6 +37,7 @@
             <a href="#skills" class="nav-link">MY SKILLS</a>
             <a href="#work" class="nav-link nav-link-portfolio">PORTFOLIO</a>
             <a href="#portfolio" class="nav-link">SHOWREEL</a>
+            <a href="#social-video-editing" class="nav-link">VIDEO EDITING</a>
             <a href="#education" class="nav-link">EDUCATION</a>
             <a href="#contacts" class="nav-link">CONTACT</a>
         </div>
@@ -315,12 +332,140 @@
         </div>
 
         <div class="showreel-container" data-reveal>
-            <video controls class="showreel-video">
+            <video controls preload="none" class="showreel-video">
                 <source src="assets/videos/showreel/Showreel.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
     </section>
+
+    <section id="social-video-editing" class="social-video" aria-labelledby="social-video-title">
+        <div class="social-video-inner">
+            <header class="social-video-header">
+                <h2 id="social-video-title">Social Media <span>Video Editing</span></h2>
+                <div class="social-video-controls" hidden>
+                    <button type="button" data-reel-direction="-1" aria-controls="social-video-list" aria-label="Previous video">
+                        <span aria-hidden="true">←</span>
+                    </button>
+                    <button type="button" data-reel-direction="1" aria-controls="social-video-list" aria-label="Next video">
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </header>
+
+            <ul id="social-video-list" class="social-video-list" role="list" aria-label="Social media videos">
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid1.mp4" data-video-size="1024x576">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid1.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Behind the Scenes</span>
+                            <time datetime="PT19S">0:19</time>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid2.mp4" data-video-size="1280x720">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid2.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Beauty Transformation</span>
+                            <time datetime="PT62S">1:02</time>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid3.mp4" data-video-size="576x1008">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid3.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Fragrance Edit</span>
+                            <time datetime="PT32S">0:32</time>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid4.mp4" data-video-size="1024x576">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid4.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Makeup Routine</span>
+                            <time datetime="PT56S">0:56</time>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid5.mp4" data-video-size="576x1024">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid5.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Makeup Tutorial</span>
+                            <time datetime="PT58S">0:58</time>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid6.mp4" data-video-size="576x1024">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid6.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Outfit Styling</span>
+                            <time datetime="PT48S">0:48</time>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid7.mp4" data-video-size="576x1008">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid7.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Skincare Routine</span>
+                            <time datetime="PT51S">0:51</time>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-video-card" href="assets/videos/social-media/vid8.mp4" data-video-size="560x432">
+                        <span class="social-video-poster">
+                            <img src="assets/images/social-videos/vid8.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+                            <span class="social-video-play" aria-hidden="true">▶</span>
+                        </span>
+                        <span class="social-video-caption">
+                            <span class="social-video-card-title">Travel Montage</span>
+                            <time datetime="PT16S">0:16</time>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <p class="social-video-empty">No social media videos have been published yet.</p>
+        </div>
+    </section>
+
+    <dialog class="social-video-dialog" aria-labelledby="social-video-playing">
+        <header class="social-video-dialog-header">
+            <h2 id="social-video-playing"></h2>
+            <form method="dialog">
+                <button class="social-video-close" aria-label="Close video" autofocus>×</button>
+            </form>
+        </header>
+        <div class="social-video-player"></div>
+        <p class="social-video-error" role="status" hidden></p>
+        <a class="social-video-watch" target="_blank" rel="noopener">Open video in a new tab</a>
+    </dialog>
 
     <!-- Education Section -->
     <section id="education" class="education">
@@ -479,6 +624,7 @@
 
     <!-- CV Request Modal -->
     <script src="cv-request.js"></script>
+    <script src="social-video.js" defer></script>
 
     <script src="script.js"></script>
 </body>

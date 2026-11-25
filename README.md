@@ -10,6 +10,7 @@ Single-page portfolio for Motion Picture and VFX work built with HTML, CSS, and 
 - Skills: scattered software icons followed by technical, creative, and professional lists.
 - My Work: Burn Mouth polaroid stack and a poster grid collage.
 - Showreel: local MP4 video player.
+- Social Media Video Editing: horizontal gallery of short edits with on-demand playback.
 - Education: degree details and AFDA logo.
 - Contact: Thank You heading and email link with copy-to-clipboard feedback.
 
@@ -69,6 +70,33 @@ OMPortfolioWeb/
 3. Replace images in assets/images and keep filenames or update paths.
 4. Replace the showreel file at assets/videos/showreel/Showreel.mp4 (or swap to an embed in index.html).
 5. Update colors, layout, and typography in styles.css.
+
+## Add a social media video
+
+Keep original exports on the external drive. The gallery serves the eight current exports through the site's existing Netlify CDN. The repository's Git LFS rule covers the MP4 files. Install Git LFS before committing additional MP4s and check that the deployment serves the actual files. Use a web-ready MP4 with its playback metadata at the beginning of the file so it can start as it downloads.
+
+Save the MP4 under `assets/videos/social-media/` and a lightweight WebP still under `assets/images/social-videos/`. Add a card inside `#social-video-list` in `index.html`. The gallery displays a portrait crop. Set `data-video-size` to the video's actual dimensions so the player preserves its framing. Use `data-captions` to point to an English WebVTT file for speech and meaningful audio when that information isn't already captioned on screen.
+
+```html
+<li>
+    <a class="social-video-card" href="assets/videos/social-media/edit.mp4" data-video-size="1080x1920">
+        <span class="social-video-poster">
+            <img src="assets/images/social-videos/edit.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
+            <span class="social-video-play" aria-hidden="true">▶</span>
+        </span>
+        <span class="social-video-caption">
+            <span class="social-video-card-title">Edit title</span>
+            <time datetime="PT30S">0:30</time>
+        </span>
+    </a>
+</li>
+```
+
+The gallery loads posters while browsing. It opens a single player when a visitor selects a video and releases it when they close the player. For larger future uploads, set the card link to a hosted MP4 or to `https://player.mux.com/PLAYBACK_ID`. [Mux](https://www.mux.com/pricing) creates adaptive streams at different quality levels. Its free plan includes up to 10 stored videos and 100,000 delivery minutes per month.
+
+## Verify the shared link
+
+The favicon uses the portfolio's chrome initial. The share card uses the original filmstrip art and is saved at `assets/images/branding/share-card.jpg`. The canonical URL and share image in `index.html` use `https://oreneilemachitje.com/`. After deploying, check that the JPEG loads publicly and then paste the public page URL into the app where it will be shared.
 
 ## Customization Notes
 
