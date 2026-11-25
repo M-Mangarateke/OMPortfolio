@@ -258,6 +258,10 @@ body {
     margin-bottom: 2rem;
 }
 
+.hero-name[tabindex="-1"]:focus {
+    outline: none;
+}
+
 .hero-name-line1,
 .hero-name-line2 {
     display: flex;

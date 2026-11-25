@@ -124,6 +124,7 @@ function createLiquidChromeIntro() {
   injectLiquidChromeStyles();
   intro.addEventListener('close', cleanup, { once: true });
   intro.showModal();
+  intro.focus({ preventScroll: true });
   initWebGLLiquidChrome();
 }
 
@@ -136,6 +137,9 @@ function setupEnterButton() {
 
   enterButton.addEventListener('click', handleButtonClick);
   enterButton.addEventListener('keydown', handleButtonClick);
+  enterButton.closest('dialog')?.addEventListener('keydown', event => {
+    if (event.target === event.currentTarget) handleButtonClick(event);
+  });
   setEnterButtonEnabled(enterButton, introReadyToEnter);
 }
 
@@ -146,8 +150,9 @@ function setEnterButtonEnabled(enterButton, enabled) {
   enterButton.setAttribute('tabindex', enabled ? '0' : '-1');
   enterButton.dataset.enabled = enabled ? 'true' : 'false';
   enterButton.style.pointerEvents = enabled ? 'auto' : 'none';
-  if (enabled && enterButton.closest('dialog')?.open) {
-    enterButton.focus({ preventScroll: true });
+  const intro = enterButton.closest('dialog');
+  if (enabled && intro?.open && !intro.contains(document.activeElement)) {
+    intro.focus({ preventScroll: true });
   }
 }
 
@@ -889,7 +894,11 @@ function injectLiquidChromeStyles() {
       filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
     }
 
-    .intro-explore-btn:focus {
+    #liquid-chrome-intro:focus {
+      outline: none;
+    }
+
+    .intro-explore-btn:focus-visible {
       outline: 2px solid rgba(190, 190, 200, 0.7);
       outline-offset: 6px;
     }
