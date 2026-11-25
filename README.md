@@ -5,7 +5,7 @@ Single-page portfolio for Motion Picture and VFX work built with HTML, CSS, and 
 ## Sections (in order)
 
 - Navigation: anchor links for every section, active link highlight, background changes on scroll.
-- Hero (Home): liquid chrome name, film strip, and Explore button that scrolls to About.
+- Hero (Home): liquid chrome name, film strip, optional intro, and Explore button that scrolls to About.
 - About Me: profile image and bio text blocks.
 - Skills: scattered software icons followed by technical, creative, and professional lists.
 - My Work: Burn Mouth polaroid stack and a poster grid collage.
@@ -82,9 +82,10 @@ Save the MP4 under `assets/videos/social-media/` and a lightweight WebP still un
     <a class="social-video-card" href="assets/videos/social-media/edit.mp4" data-video-size="1080x1920">
         <span class="social-video-poster">
             <img src="assets/images/social-videos/edit.webp" width="360" height="640" alt="" loading="lazy" decoding="async">
-            <span class="social-video-play" aria-hidden="true">▶</span>
+            <span class="social-video-play" aria-hidden="true"></span>
         </span>
         <span class="social-video-caption">
+            <span class="visually-hidden">Play </span>
             <span class="social-video-card-title">Edit title</span>
             <time datetime="PT30S">0:30</time>
         </span>
@@ -97,6 +98,10 @@ The gallery loads posters while browsing. It opens a single player when a visito
 ## Verify the shared link
 
 The favicon uses the portfolio's chrome initial. The share card uses the original filmstrip art and is saved at `assets/images/branding/share-card.jpg`. The canonical URL and share image in `index.html` use `https://oreneilemachitje.com/`. After deploying, check that the JPEG loads publicly and then paste the public page URL into the app where it will be shared.
+
+## Search discovery
+
+`robots.txt` points crawlers to `sitemap.xml`. The sitemap lists the canonical homepage. Section anchors are part of that page. Keep the profile facts in the homepage and structured data in sync.
 
 ## Customization Notes
 

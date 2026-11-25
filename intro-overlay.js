@@ -4,6 +4,8 @@
  */
 
 let introReadyToEnter = false;
+let introTransition = null;
+let introScrollPosition = 0;
 
 const HERO_ANIMATION_ASSETS = [
   'assets/images/backgrounds/HeroBackground.png',
@@ -29,27 +31,23 @@ const HERO_ANIMATION_ASSETS = [
 
 // Wait for DOM and motionConfig to be ready
 document.addEventListener('DOMContentLoaded', () => {
-  // Skip entire intro flow if reduced motion is enabled
-  if (motionConfig.reducedMotion) {
-    window.introOverlayActive = false;
-    window.heroAssetsReady = true;
-    console.log('%c⏭️ Intro overlay skipped (reduced motion)', 'color: #ff6b6b;');
-    // Trigger hero animations immediately since intro is skipped
-    if (window.triggerHeroAnimations) {
-      setTimeout(() => {
-        window.triggerHeroAnimations();
-      }, 500);
-    }
-    return;
-  }
+  window.introOverlayActive = false;
+  window.heroAssetsReady = true;
+  if (motionConfig.reducedMotion || typeof gsap === 'undefined') return;
 
-  initIntroOverlay();
+  window.triggerHeroAnimations?.();
+  const replay = document.querySelector('.intro-replay');
+  if (!replay || typeof document.createElement('dialog').showModal !== 'function') return;
+
+  replay.hidden = false;
+  replay.addEventListener('click', initIntroOverlay);
 });
 
 /**
  * Initialize the intro overlay system
  */
 function initIntroOverlay() {
+  if (window.introOverlayActive) return;
   window.introOverlayActive = true;
   window.heroAssetsReady = false;
   introReadyToEnter = false;
@@ -107,11 +105,12 @@ function restoreOriginalContent() {
  * Lock vertical scrolling
  */
 function lockScroll() {
+  introScrollPosition = window.scrollY;
   document.body.style.overflow = 'hidden';
   document.documentElement.style.overflow = 'hidden';
   document.body.style.position = 'fixed';
   document.body.style.width = '100%';
-  document.body.style.top = '0';
+  document.body.style.top = `-${introScrollPosition}px`;
 }
 
 /**
@@ -123,16 +122,19 @@ function unlockScroll() {
   document.body.style.position = '';
   document.body.style.width = '';
   document.body.style.top = '';
+  window.scrollTo({ top: introScrollPosition, behavior: 'instant' });
 }
 
 /**
  * Create the liquid chrome intro screen with WebGL
  */
 function createLiquidChromeIntro() {
-  const intro = document.createElement('div');
+  const intro = document.createElement('dialog');
   intro.id = 'liquid-chrome-intro';
+  intro.setAttribute('aria-label', 'Portfolio intro');
   intro.innerHTML = `
     <canvas id="liquid-chrome-canvas" class="liquid-chrome-background"></canvas>
+    <button type="button" class="intro-close" autofocus>Close intro</button>
 
     <div class="intro-content">
       <img src="assets/images/intro/IntroText.svg" alt="Intro" class="intro-text">
@@ -151,6 +153,9 @@ function createLiquidChromeIntro() {
 
   document.body.appendChild(intro);
   injectLiquidChromeStyles();
+  intro.querySelector('.intro-close').addEventListener('click', () => intro.close());
+  intro.addEventListener('close', cleanup, { once: true });
+  intro.showModal();
   initWebGLLiquidChrome();
 }
 
@@ -280,6 +285,7 @@ function handleButtonClick(e) {
  * Start the liquid chrome transition sequence
  */
 function startLiquidTransition() {
+  if (introTransition) return;
   console.log('%c▶️ Starting liquid chrome transition', 'color: #88ce02;');
 
   const intro = document.getElementById('liquid-chrome-intro');
@@ -288,9 +294,9 @@ function startLiquidTransition() {
   const heroSection = document.querySelector('#home.hero');
 
   // Create GSAP timeline
-  const tl = gsap.timeline({
+  const tl = introTransition = gsap.timeline({
     onComplete: () => {
-      cleanup();
+      intro.close();
     }
   });
 
@@ -707,13 +713,21 @@ function cleanup() {
   if (intro) {
     intro.remove();
   }
+  document.getElementById('liquid-chrome-intro-styles')?.remove();
+  if (introTransition) {
+    introTransition.kill();
+    introTransition = null;
+    gsap.set(['.navbar', '#home.hero'], { clearProps: 'transform' });
+  }
   window.introOverlayActive = false;
+  window.heroAssetsReady = true;
 
   // Restore all sections visibility
   restoreOriginalContent();
 
   // Unlock scroll
   unlockScroll();
+  document.querySelector('.intro-replay')?.focus({ preventScroll: true });
 
   // Dispatch custom event to trigger hero animations
   const introCompleteEvent = new CustomEvent('intro-complete');
@@ -754,13 +768,32 @@ function injectLiquidChromeStyles() {
     /* Liquid Chrome Intro Container */
     #liquid-chrome-intro {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100vh;
+      max-width: none;
+      max-height: none;
+      border: 0;
+      margin: 0;
+      padding: 0;
       z-index: 10000;
       overflow: hidden;
       background: #0b0b0b;
+    }
+
+    .intro-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10002;
+      min-height: 44px;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ebbbdc;
+      border-radius: 0.25rem;
+      background: #251e27;
+      color: #faf4f8;
+      font: 700 0.875rem/1.2 Agrandir, Arial, sans-serif;
+      cursor: pointer;
     }
 
     /* WebGL Liquid Chrome Background Canvas */

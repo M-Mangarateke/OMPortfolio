@@ -41,6 +41,7 @@ function checkHeroReadiness() {
  * Safe trigger function with readiness check
  */
 function triggerHeroAnimationSafe() {
+  if (window.motionConfig?.reducedMotion) return;
   if (heroAnimated) {
     console.log('%c⏭️ Hero already animated', 'color: #888;');
     return;
