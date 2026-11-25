@@ -163,35 +163,12 @@ function createLiquidChromeIntro() {
  * Setup the intro explore button click handler
  */
 function setupEnterButton() {
-  // Use setTimeout to ensure DOM is ready
-  setTimeout(() => {
-    const enterButton = document.querySelector('.intro-explore-btn');
+  const enterButton = document.querySelector('.intro-explore-btn');
+  if (!enterButton) return;
 
-    if (enterButton) {
-      console.log('%c🔘 Intro explore button found, attaching event listener', 'color: #88ce02;');
-      console.log('Button element:', enterButton);
-      console.log('Button computed style z-index:', window.getComputedStyle(enterButton).zIndex);
-      console.log('Button computed style pointer-events:', window.getComputedStyle(enterButton).pointerEvents);
-
-      // Multiple event listeners to ensure it works
-      enterButton.addEventListener('click', handleButtonClick);
-      enterButton.addEventListener('touchstart', handleButtonClick);
-      enterButton.addEventListener('keydown', handleButtonClick);
-
-      // Make absolutely sure it's clickable
-      enterButton.style.cursor = 'pointer';
-      enterButton.style.pointerEvents = 'auto';
-      enterButton.style.zIndex = '10001';
-      setEnterButtonEnabled(enterButton, introReadyToEnter);
-
-      // Add visual feedback
-      enterButton.addEventListener('mouseenter', () => {
-        console.log('Mouse entered button');
-      });
-    } else {
-      console.error('❌ Intro explore button not found in DOM');
-    }
-  }, 100);
+  enterButton.addEventListener('click', handleButtonClick);
+  enterButton.addEventListener('keydown', handleButtonClick);
+  setEnterButtonEnabled(enterButton, introReadyToEnter);
 }
 
 function setEnterButtonEnabled(enterButton, enabled) {
@@ -260,6 +237,7 @@ function startIntroLoading() {
   preloadImages(getHeroAssetsToPreload(), (ratio) => {
     updateIntroLoadingProgress(loadingTrack, loadingProgress, ratio);
   }).then(() => {
+    if (!enterButton.isConnected) return;
     introReadyToEnter = true;
     window.heroAssetsReady = true;
     updateIntroLoadingProgress(loadingTrack, loadingProgress, 1);
